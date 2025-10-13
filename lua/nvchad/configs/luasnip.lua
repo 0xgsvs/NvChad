@@ -9,3 +9,11 @@ require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snip
 -- lua format
 require("luasnip.loaders.from_lua").load()
 require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
+
+local opts = {
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+  enable_autosnippets = true,
+}
+
+return opts

@@ -1,44 +1,68 @@
+-- //========== options ==========//
+
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
+------------------------------------ globals -----------------------------------------
+g.autoformat = true
 -------------------------------------- options ------------------------------------------
+
+-- Lua
+o.encoding = "utf-8"
+o.fileencoding = "utf-8"
+
+g.have_nerd_font = true
+
+vim.diagnostic.enable(true)
+
+o.clipboard = "unnamedplus"
+
+o.breakindent = true
+o.updatetime = 250
+
+o.cursorline = true
+o.cursorlineopt = "both" -- to enable cursorline!
+
 o.laststatus = 3
 o.showmode = false
 o.splitkeep = "screen"
 
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "number"
-
 -- Indenting
 o.expandtab = true
 o.shiftwidth = 2
+o.autoindent = true -- Automatically indent new lines
 o.smartindent = true
 o.tabstop = 2
 o.softtabstop = 2
+o.scrolloff = 28 -- Lines of context
+o.winborder = "solid"
+-- bold, double, none, rounded,shadow,single,solid
 
-opt.fillchars = { eob = " " }
+o.list = false
+opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+vim.o.inccommand = "split"
+
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.fillchars = { eob = "~" }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
 
 -- Numbers
 o.number = true
+o.relativenumber = true
 o.numberwidth = 2
 o.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+-- opt.shortmess:append "sI"
 
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
-o.timeoutlen = 400
+o.timeoutlen = 300
 o.undofile = true
-
--- interval for writing swap file to disk, also used by gitsigns
-o.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
