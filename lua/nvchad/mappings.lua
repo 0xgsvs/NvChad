@@ -33,6 +33,9 @@ map(
 -- Swap v and V for visual modes
 map("n", "<A-v>", "V", { noremap = true })
 
+-- copy entire file
+map("n", "<C-c>", "<cmd>:%y<CR>", { noremap = true })
+
 -- comment
 map("n", "<leader>;", "gcc", { desc = "comment toggle", remap = true })
 map("v", "<leader>;", "gc", { desc = "comment toggle", remap = true })
