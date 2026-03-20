@@ -55,11 +55,12 @@ return {
 
   {
     "folke/which-key.nvim",
+    lazy = false,
     cmd = "WhichKey",
     opts = function()
       return require "nvchad.configs.whichkey"
     end,
-    keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+    keys = { { "<Space>", desc = "Leader" }, "<c-w>", '"', "'", "`", "c", "v", "g" },
   },
 
   -- formatting!
@@ -76,20 +77,19 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "User FilePost",
-    opts = {
-    },
-    config = function() 
+    opts = {},
+    config = function()
       dofile(vim.g.base46_cache .. "git")
-    end
+    end,
   },
 
   -- lsp stuff
   {
     "mason-org/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },
-    opts = function() 
+    opts = function()
       dofile(vim.g.base46_cache .. "git")
-    end
+    end,
   },
 
   {
