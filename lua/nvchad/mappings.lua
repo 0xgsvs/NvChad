@@ -30,6 +30,9 @@ map(
   { desc = "telescope find all files" }
 )
 
+-- Redo keymap
+map("n", "U", "<C-r>", { desc = "Redo" })
+
 -- Swap v and V for visual modes
 map("n", "<A-v>", "V", { noremap = true })
 
@@ -44,14 +47,13 @@ map("v", "<leader>;", "gc", { desc = "comment toggle", remap = true })
 map({ "n", "x", "s" }, "<a-e>", "%", { noremap = true, silent = true })
 
 -- enter the command mode
-map("n", ":", "/", { desc = "Search inside the file" })
+map("n", ";s", "/", { desc = "Search inside the file" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", ";;", ":! ", { desc = "CMD enter command mode" })
 
 -- shortcut for escape
 map({ "i", "c" }, "jk", "<cmd>noh<CR><ESC>")
 map({ "n", "i", "c" }, "<ESC>", "<cmd>noh<CR><ESC>")
-map("v", "u", "<cmd>noh<CR><ESC>")
 
 -- terminal
 map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
