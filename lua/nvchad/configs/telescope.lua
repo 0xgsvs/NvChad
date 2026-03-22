@@ -18,6 +18,12 @@ return {
     },
   },
 
-  extensions_list = { "themes", "terms" },
-  extensions = {},
+  extensions_list = { "themes", "terms", "ui-select" },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      },
+    },
+  },
 }
