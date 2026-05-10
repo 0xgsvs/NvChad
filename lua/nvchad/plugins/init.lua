@@ -47,9 +47,29 @@ return {
   -- file managing , picker etc
   {
     "nvim-tree/nvim-tree.lua",
+    enabled = false,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
       return require "nvchad.configs.nvimtree"
+    end,
+  },
+
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    config = function()
+      require("oil").setup {
+        keymaps = {
+          ["<A-h>"] = "actions.parent",
+          ["<A-l>"] = "actions.select",
+          ["H"] = "actions.toggle_hidden",
+        },
+      }
     end,
   },
 

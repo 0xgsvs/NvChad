@@ -105,3 +105,11 @@ autocmd("BufWritePre", {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
+
+-- disable colorcolumn for oil
+autocmd("FileType", {
+  pattern = "oil",
+  callback = function()
+    vim.opt_local.colorcolumn = ""
+  end,
+})

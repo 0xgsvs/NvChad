@@ -5,8 +5,17 @@ local map = vim.keymap.set
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
--- nvimtree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+-- oil
+local last_oil_dir = nil
+map("n", "<C-n>", function()
+  local oil = require "oil"
+  if vim.bo.filetype == "oil" then
+    last_oil_dir = oil.get_current_dir() -- save before closing
+    oil.close()
+  else
+    oil.open(last_oil_dir) -- nil on first open = current buffer's dir (fine)
+  end
+end)
 
 -- telescope
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
