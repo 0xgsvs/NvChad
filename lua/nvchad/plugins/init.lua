@@ -85,14 +85,6 @@ return {
 
   -- lsp stuff
   {
-    "mason-org/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
-    opts = function()
-      dofile(vim.g.base46_cache .. "git")
-    end,
-  },
-
-  {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
     config = function()

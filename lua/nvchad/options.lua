@@ -17,6 +17,7 @@ g.have_nerd_font = true
 vim.diagnostic.enable(true)
 
 o.clipboard = "unnamedplus"
+o.termguicolors = true
 
 o.breakindent = true
 o.updatetime = 250
@@ -41,6 +42,7 @@ o.winborder = "solid"
 
 o.list = false
 opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+opt.colorcolumn = "80,120"
 vim.o.inccommand = "split"
 
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
