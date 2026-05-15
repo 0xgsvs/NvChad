@@ -7,13 +7,21 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 
 -- oil
 local last_oil_dir = nil
+
+-- Save dir whenever oil buffer is left for ANY reason (enter key, <C-n>, :q, etc.)
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "oil://*",
+  callback = function()
+    last_oil_dir = require("oil").get_current_dir()
+  end,
+})
+
 map("n", "<C-n>", function()
   local oil = require "oil"
   if vim.bo.filetype == "oil" then
-    last_oil_dir = oil.get_current_dir() -- save before closing
     oil.close()
   else
-    oil.open(last_oil_dir) -- nil on first open = current buffer's dir (fine)
+    oil.open(last_oil_dir)
   end
 end)
 

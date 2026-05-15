@@ -46,15 +46,6 @@ return {
 
   -- file managing , picker etc
   {
-    "nvim-tree/nvim-tree.lua",
-    enabled = false,
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    opts = function()
-      return require "nvchad.configs.nvimtree"
-    end,
-  },
-
-  {
     "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
